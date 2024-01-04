@@ -5,7 +5,10 @@
     <title>Home</title>
 </head>
 <body>
+
 <h1 th:text="'Best of the ' +${nameUser} +' by ' +${yearUser}"></h1>
+
+<a th:href="@{/songs}">Go to songs list</a>
 
 </body>
 </html>

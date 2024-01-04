@@ -26,15 +26,15 @@ public class SongController {
         return songList;
     }
 
-    @GetMapping("/{numberId}")
-    public String songDetails(@RequestParam (name = "numberId" , defaultValue = "1") int songID,Model model){
+    @GetMapping("/details/{songID}")
+    public String songDetails(@RequestParam (defaultValue = "1") int songID, Model model){
         Song find = findSong(songID);
         model.addAttribute("findSong",find);
         return "songDetails";
     }
 
     public Song findSong(int idSong){
-        Song find = new Song();
+        Song find = null;
         for(Song element : getSongList()){
             if (idSong == element.getId()){
                 find = element;
